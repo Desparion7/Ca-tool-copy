@@ -1,0 +1,24 @@
+.desktopMenu {
+  position: relative;
+  z-index: 2;
+  &__open {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1rem;
+    svg {
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+  }
+  &__options {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 200px;
+    padding: 1rem;
+    padding-top: 2rem;
+    background-color: var(--color-header);
+  }
+}
