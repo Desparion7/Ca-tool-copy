@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { BsSun } from 'react-icons/bs';
-import { useDispatch } from 'react-redux';
-import { toggleMode } from '../../app/slice/colorModeSlice';
+import { TbMoon } from 'react-icons/tb';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleMode, colorMode } from '../../app/slice/colorModeSlice';
 import styles from './Header.module.scss';
 import Search from './Search';
 import DesktopMenu from './DesktopMenu';
@@ -9,22 +10,32 @@ import DesktopMenu from './DesktopMenu';
 const Header = () => {
   const dispatch = useDispatch();
 
+  const mode = useSelector(colorMode);
+
   return (
     <header className={`${styles.header} containter`}>
       <div className={styles.header__top}>
         <div className={styles['header__top--logo']}>
-          <p className="gradient__text">PITIAJTI</p>
+          <img src="./logo.png" alt="logo" />
         </div>
         <Search />
         <div className={styles['header__top--btn']}>
           <button type="button">Zaloguj się</button>
           <button type="button">Zarejestruj się</button>
           <div className={styles['header__top--btn-mode']}>
-            <BsSun
-              onClick={() => {
-                dispatch(toggleMode());
-              }}
-            />
+            {mode === 'light' ? (
+              <TbMoon
+                onClick={() => {
+                  dispatch(toggleMode());
+                }}
+              />
+            ) : (
+              <BsSun
+                onClick={() => {
+                  dispatch(toggleMode());
+                }}
+              />
+            )}
           </div>
         </div>
       </div>

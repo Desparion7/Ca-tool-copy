@@ -38,7 +38,7 @@ const DesktopMenu = () => {
       </div>
       {isVisible && (
         <div
-          className={`${styles.desktopMenu__options}`}
+          className={`${styles.desktopMenu__options} ${styles.show_options}`}
           onClick={() => {
             setIsVisible(false);
           }}
