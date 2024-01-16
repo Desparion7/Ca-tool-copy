@@ -2,7 +2,7 @@
 import React from 'react';
 import { SchoolsNameType } from '@/app/ankieta/_components/user-survey/user-survey';
 import { getSchoolsName } from '@/app/ankieta/_lib/api-survey';
-import { Select, Group, rem } from '@mantine/core';
+import { Select, rem } from '@mantine/core';
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { IconFilter } from '@tabler/icons-react';
 import { useMemberListContext } from '@/context/member-list-context';
@@ -42,7 +42,7 @@ const FilterMembersBySchool = () => {
 			size='xs'
 			label='Filtruj przez szkoła / uczelnia'
 			placeholder='Wybierz uczelnie'
-			data={...schoolsName}
+			data={schoolsName}
 			leftSection={
 				<IconFilter
 					style={{ width: rem(15), height: rem(15) }}
